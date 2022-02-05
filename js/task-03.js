@@ -14,31 +14,30 @@ const images = [
 ];
 
 
-
 const listEl = document.querySelector('.gallery')
 // console.log(listEl);
 
-const makeImageGallery = image => {
+// створюю шаблон і деструктуризую вхідні дані
+const makeImageGallery = ({ url, alt }) => {
 
-  const items = document.createElement( `li`);
-  itemEl.classList.add("items");
+  // створюю "лі" і даю йому клас
+  const itemsEl = document.createElement(`li`);
+  itemsEl.classList.add('items');
 
-// const imageEl = document.createElement("img")
-//   imageEl.classList.add("image");
-//   imageEl.src = `${images.url}`;
-//   imageEl.alt = `${images.alt}`;
+  // створюю "імґ" і даю йому клас + "срк" з масиву + "альт" з масиву
+  const imageEl = document.createElement("img")
+  imageEl.classList.add("image");
+  imageEl.src = `${url}`;
+  imageEl.alt = `${alt}`;
 
-//     // imageEl.src = `https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`;
-//     // imageEl.alt = `lol`;
+  itemsEl.append(imageEl); // вкладаю "імґ" в елемент "лі"
+  return itemsEl;
+};
 
-
-// itemEl.append(imageEl);
-  
-// console.log(itemEl);
-
-  // return itemEl;
-}
-
-// const elementsImg = images.map(makeImageGallery);
-
-listEl.append(items);
+const elements = images
+  .map(makeImageGallery)
+  .join(''); // перебираю масив через створений шаблон
+console.log(elements);
+listEl.insertAdjacentHTML("beforeend", elements);
+// listEl.append(...elements);
+console.log()

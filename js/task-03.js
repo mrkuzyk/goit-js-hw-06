@@ -17,27 +17,39 @@ const images = [
 const listEl = document.querySelector('.gallery')
 // console.log(listEl);
 
-// створюю шаблон і деструктуризую вхідні дані
 const makeImageGallery = ({ url, alt }) => {
 
-  // створюю "лі" і даю йому клас
-  const itemsEl = document.createElement(`li`);
-  itemsEl.classList.add('items');
+  return `
+  <li class='items'>
+    <img class="image" src="${url}" alt="${alt}">
+  </li>`;
+}
 
-  // створюю "імґ" і даю йому клас + "срк" з масиву + "альт" з масиву
-  const imageEl = document.createElement("img")
-  imageEl.classList.add("image");
-  imageEl.src = `${url}`;
-  imageEl.alt = `${alt}`;
+const elements = images.map(makeImageGallery).join('');
 
-  itemsEl.append(imageEl); // вкладаю "імґ" в елемент "лі"
-  return itemsEl;
-};
-
-const elements = images
-  .map(makeImageGallery)
-  .join(''); // перебираю масив через створений шаблон
-console.log(elements);
 listEl.insertAdjacentHTML("beforeend", elements);
+
+
+
+// // створюю шаблон і деструктуризую вхідні дані
+// const makeImageGallery = ({ url, alt }) => {
+
+//   // створюю "лі" і даю йому клас
+//   const itemsEl = document.createElement(`li`);
+//   itemsEl.classList.add('items');
+
+//   // створюю "імґ" і даю йому клас + "срк" з масиву + "альт" з масиву
+//   const imageEl = document.createElement("img")
+//   imageEl.classList.add("image");
+//   imageEl.src = `${url}`;
+//   imageEl.alt = `${alt}`;
+
+//   itemsEl.append(imageEl); // вкладаю "імґ" в елемент "лі"
+//   return itemsEl;
+// };
+
+// const elements = images.map(makeImageGallery); // перебираю масив через створений шаблон
+// console.log(elements);
+
 // listEl.append(...elements);
-console.log()
+

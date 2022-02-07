@@ -6,7 +6,7 @@ const input = document.querySelector('#validation-input');
 const onInputBlur = (event) => {
     input.classList.add('invalid'); // вішаю зразу неправильний
     
-    if (event.currentTarget.value.length == event.currentTarget.dataset.length) {
+    if (event.currentTarget.value.length === Number(event.currentTarget.dataset.length)) {
         input.classList.add('valid'); //якщо умова збулася то вішаю цей клас
         input.classList.remove('invalid'); // знімаю клас, якщо умова вірна
     };

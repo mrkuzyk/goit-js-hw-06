@@ -7,4 +7,4 @@ const textSpan = document.querySelector('#text')
 // функція змінює "фонтСайз" в залежності від значення "контроллера"
 const onChangeFontSize = () => textSpan.style.fontSize = controler.value + 'px';
 
-controler.addEventListener('change', onChangeFontSize);
+controler.addEventListener('input', onChangeFontSize);
